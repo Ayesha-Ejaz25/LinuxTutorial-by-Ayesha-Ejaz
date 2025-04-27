@@ -1,0 +1,938 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Linux Tutorial</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: linear-gradient(to right, #E0F2F7, #4e6885);
+            color: #2C3E50;
+        }
+    
+        h1 {
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 2em;
+            color: #2C3E50;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+        }
+    
+        .task {
+            background: #afb6be;
+            padding: 20px;
+            margin: 15px auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            max-width: 100%;
+            box-sizing: border-box;
+        }
+    
+        .task:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        }
+    
+        .task h2 {
+            color: #0f0e0e;
+            border-bottom: 2px solid #6dd5ed;
+            padding-bottom: 5px;
+            margin-bottom: 12px;
+            font-size: 1.4em;
+        }
+    
+        .task p, .task li {
+            color: #2b2626;
+            line-height: 1.6;
+            font-size: 1em;
+        }
+    
+        ul {
+            padding-left: 20px;
+        }
+    
+        pre {
+            background: #f0f0f0;
+            padding: 12px;
+            border-radius: 6px;
+            overflow-x: auto;
+            font-size: 0.9em;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+    
+        code {
+            background-color: #f4f4f4;
+            padding: 2px 4px;
+            border-radius: 3px;
+            font-size: 0.9em;
+            color: #07728d;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 10px 0;
+        }
+        
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+        
+        th, td {
+            padding: 8px;
+            text-align: left;
+        }
+        
+        th {
+            background-color: #f2f2f2;
+        }
+        
+        /* Responsive adjustments */
+        @media (min-width: 768px) {
+            body {
+                padding: 30px;
+            }
+            
+            h1 {
+                font-size: 2.5em;
+                margin-bottom: 40px;
+            }
+            
+            .task {
+                padding: 25px;
+                margin: 20px auto;
+                max-width: 900px;
+            }
+            
+            .task h2 {
+                font-size: 1.6em;
+            }
+            
+            pre {
+                font-size: 1em;
+                padding: 15px;
+            }
+            
+            code {
+                font-size: 1em;
+            }
+        }
+        
+        @media (min-width: 1024px) {
+            h1 {
+                font-size: 3em;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            body {
+                padding: 15px;
+            }
+            
+            h1 {
+                font-size: 1.8em;
+                margin-bottom: 20px;
+            }
+            
+            .task {
+                padding: 15px;
+                margin: 10px auto;
+            }
+            
+            .task h2 {
+                font-size: 1.2em;
+            }
+            
+            pre {
+                font-size: 0.85em;
+                padding: 10px;
+            }
+            
+            table {
+                font-size: 0.9em;
+            }
+            
+            th, td {
+                padding: 6px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Linux Basics Tutorial by Ayesha Ejaz(49146)</h1>
+    <div class="task">
+        <h2>Linux</h2>
+        <pre style="font-family: Arial, sans-serif;">Linux is an open-source operating system just like Windows or macOS — but it's free and customizable.
+It acts as a bridge between your computer's hardware (like CPU, RAM, hard drive) and the software (like applications and programs).
+            
+   When you turn on a Linux machine:
+            
+   Linux controls hardware
+            
+   Linux manages files and processes
+            
+   Linux provides a platform to run programs
+   <h2>Kernel</h2>
+   The kernel is the core part of an operating system that manages communication between hardware and software.
+   It controls processes, memory, devices, and file systems to keep everything running smoothly.</pre>
+    </div>
+    <div class="task">
+        <h2>1. Navigating Directories</h2>
+        <p><code>cd</code> - Move to the home directory from the current directory.</p>
+        <p><code>cd /</code> - Move to the root directory (the top-level directory).</p>
+        <p><code>cd ..</code> - Move one step (one directory) backward.</p>
+        <p><code>cd dir-name</code> - Move to a specific directory named in the command.</p>
+        <p><code>ls</code> - Show all files and folders in the current directory.</p>
+        <p><code>ls -l</code> - Show detailed information (permissions, size, date) about files and folders.</p>
+        <p><code>ls -r</code> - List files and folders in reverse order.</p>
+        <p><code>ls -a</code> - Show all hidden and unhidden files.</p>
+        <p><code>pwd</code> - Print the full path of your current working directory.</p>
+    </div>
+
+    <div class="task">
+        <h2>2. File Management</h2>
+        <p><code>touch filename, pico filename, nano filename</code> - Create a new empty file.</p>
+        <p><code>mkdir foldername</code> - Make a new directory (folder).</p>
+        <p><code>cp source destination</code> - Copy a file or folder.</p>
+        <p><code>mv source destination</code> - Move or rename a file/folder.</p>
+        <p><code>rm filename</code> - Delete a file.</p>
+        <p><code>rmdir dir-name</code> - Delete an empty directory (only if no files or folders inside).</p>
+        <p><code>rm -r dir-name</code> - Delete a directory and everything inside it (files and subfolders).</p>
+    </div>
+
+    <div class="task">
+        <h2>3. Viewing File Content</h2>
+        <p><code>cat filename</code> - Show all contents of a file.</p>
+    </div>
+
+    <div class="task">
+        <h2>4. Permissions</h2>
+        <p><code>chmod</code> - Change permissions (read, write, execute) of a file.</p>
+        <p><strong>Read (r):</strong> The read (r) permission in a directory means you can use the ls command to the filenames.</p>
+        <p><strong>Write (w):</strong> The write (w) permission in a directory means you can add remove files from that directory.</p>
+        <p><strong>Execute (x):</strong> The execute (x) permission in a directory means you can use the cd command to change to that directory.</p>
+    </div>
+
+    <div class="task">
+        <h2>5. Package Management</h2>
+        <p><code>sudo apt update</code> - Update the list of available packages (Ubuntu).</p>
+        <p><code>sudo apt install package-name</code> - Install a new software package.</p>
+    </div>
+
+    <div class="task">
+        <h2>6. Process Management</h2>
+        <p><code>ps</code> - Show currently running processes.</p>
+        <p><strong>bg</strong> - Resumes a suspended job in the background.</p>
+        <p><strong>fg</strong> - Brings a background job to the foreground.</p>
+        <p><code>kill PID</code> - Terminate a process using its Process ID.</p>
+    </div>
+
+    <div class="task">
+        <h2>7. Useful Commands and File Operations</h2>
+    
+        <h3>File Editor</h3>
+    
+        <p><strong>1. date</strong> - Displays the current date and time. Only the system administrator can change it. You can display only the date in different formats.</p>
+    
+        <p><strong>2. clear</strong> - Clears the terminal screen.</p>
+    
+        <p><strong>3. echo</strong> - Prints (echoes) the text you type onto the screen.</p>
+    
+        <p><strong>4. who</strong> - Lists the users currently logged in, along with terminal and login time.</p>
+    
+        <p><strong>5. whoami</strong> - Displays the username of the current logged-in user.</p>
+    
+        <h3>System/Kernel Properties</h3>
+    
+        <p>Linux kernel has a version format: <code>&lt;major&gt;.&lt;minor&gt;.&lt;patch&gt;-&lt;build&gt;.&lt;linux&gt;.&lt;architecture&gt;</code>.</p>
+        <p>Kernel modules are located at: <code>/lib/modules/&lt;kernel version&gt;</code>.</p>
+    
+        <h4>Exercise:</h4>
+        <p><code>ls /lib/modules</code> - List contents of the modules directory.</p>
+        <p><code>uname -r</code> - Show the current running kernel version.</p>
+    
+        <h3>6. uname</h3>
+        <p><strong>uname</strong> - Displays system information like OS name and kernel version.</p>
+        <p><strong>Options:</strong></p>
+        <ul>
+            <li><code>-n</code> : Print the network node hostname</li>
+            <li><code>-r</code> : Print the kernel release</li>
+            <li><code>-v</code> : Print the kernel version</li>
+            <li><code>-m</code> : Print the machine hardware name</li>
+            <li><code>-p</code> : Print the processor type</li>
+            <li><code>-i</code> : Print the hardware platform</li>
+            <li><code>-o</code> : Print the operating system</li>
+            <li><code>-a</code> : Print all available system information</li>
+        </ul>
+    
+        <h3>File Sorting</h3>
+    
+        <p><strong>7. sort</strong> - Sorts lines in a file alphabetically. Output shows on terminal by default but can be redirected to a file.</p>
+        <p><strong>Options:</strong></p>
+        <ul>
+            <li><code>-r</code> : Sort in reverse order</li>
+            <li><code>-b</code> : Ignore leading blanks</li>
+            <li><code>-f</code> : Ignore case differences (A=a)</li>
+            <li><code>-k</code> : Sort based on a specific column</li>
+            <li><code>-n</code> : Sort numbers by their arithmetic values</li>
+        </ul>
+    </div>
+    
+<div class="task">
+    <h2>8. GCC Compilation</h2>
+    <p><strong>GCC (GNU Compiler Collection)</strong> is a compiler system produced by the GNU Project. Originally it was the GNU C Compiler, later extended to compile C++, Objective-C, Java, FORTRAN, etc.</p>
+    <p><code>gcc --version</code> - Check installed GCC version.</p>
+    <p>If not installed, you can install GCC with:</p>
+    <p><code>sudo apt install gcc</code></p>
+    <p>Save your C program files with the <code>.c</code> extension (example: <code>test.c</code>).</p>
+
+    <h3>Example to Compile and Run:</h3>
+    <p><code>gcc hello.c -o hello</code> - Compiles <code>hello.c</code> into executable <code>hello</code>.</p>
+    <p><code>./hello</code> - Run the compiled executable.</p>
+
+    <p><strong>Note:</strong> Always run the compiled file, not the source file! (Never <code>./hello.c</code>)</p>
+   
+</div>
+<div class="task">
+    <h2>10. Stream, Redirection & Pipes</h2>
+
+    <h3>Streams</h3>
+    <p>In computers, a stream is just the flow of data. When data comes into the computer (input), or goes out from it (output), it's called a stream.</p>
+    <p>Linux commands use three types of streams:</p>
+    <ul>
+        <li><strong>Standard Input (stdin):</strong> Input, usually from keyboard.</li>
+        <li><strong>Standard Output (stdout):</strong> Output to screen (results).</li>
+        <li><strong>Standard Error (stderr):</strong> Error messages shown on screen.</li>
+    </ul>
+
+    <h3>I/O Redirection</h3>
+    <p><strong>Redirection</strong> means changing where input comes from or where output goes.</p>
+    <p>Normally, input comes from keyboard and output goes to the screen, but with redirection, we can change this.</p>
+
+    <h4>Redirection Operators:</h4>
+    <ul>
+        <li><code>></code> - Send output to a file (overwrite if file exists).</li>
+        <li><code>>></code> - Send output to the end of a file (append).</li>
+        <li><code><</code> - Take input from a file instead of keyboard.</li>
+        <li><code><<</code> - Used mostly in shell scripting for input.</li>
+        <li><code>|</code> - Send output of one command as input to another command (pipe).</li>
+    </ul>
+
+    <h4>Examples:</h4>
+    <p><code>date > xyz</code> - Save current date into a file named xyz. (Overwrites if xyz exists)</p>
+    <p><code>cat < datafile</code> - Read contents of datafile and display them.</p>
+    <p><code>cat &lt; fileone &gt; filetwo</code> - Read from fileone and write into filetwo.</p>
+
+    <h3>Pipes</h3>
+    <p><strong>Pipe</strong> connects the output of one command to the input of another command. The symbol <code>|</code> is used.</p>
+    <p>Format: <code>CommandA | CommandB</code></p>
+
+    <h4>Example:</h4>
+    <p><code>ls | lpr</code> - Send list of files to the printer.</p>
+
+    <h3>Running Linux Commands inside C Program</h3>
+    <p>In C programming, we can run Linux commands using the <code>system()</code> function from <code>&lt;stdlib.h&gt;</code>.</p>
+
+    <h4>Syntax:</h4>
+    <p><code>system("command");</code></p>
+
+    <h4>Example 1: List Files in Directory</h4>
+    <pre>
+#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;  // Needed for system()
+
+int main() {
+    int result = system("ls");
+
+    if (result == -1) {
+        printf("Command execution failed.\n");
+    } else {
+        printf("Command executed successfully.\n");
+    }
+
+    return 0;
+}
+    </pre>
+</div>
+
+
+<div class="task">
+    <h2>11. System Calls</h2>
+
+    <h3>What is a System Call?</h3>
+    <p>A System Call is like a bridge between your program and the Linux kernel. When a program needs help from the system, like using memory or hardware, it asks through system calls.</p>
+
+    <h4>Common System Calls:</h4>
+    <ul>
+        <li><strong>Process Management:</strong> getpid(), getuid(), getgid()</li>
+        <li><strong>File I/O:</strong> create(), open(), close()</li>
+        <li><strong>Process Control:</strong> fork(), exec(), wait()</li>
+        <li><strong>Signal Handling:</strong> kill(), alarm()</li>
+    </ul>
+
+    <h4>Example:</h4>
+    <p>Suppose you want to copy data from one file to another, the program needs:</p>
+    <ul>
+        <li>System call to display a message asking for filenames</li>
+        <li>System call to read input from the keyboard</li>
+    </ul>
+
+    <h3>Why We Need System Calls?</h3>
+    <ul>
+        <li>To read and write files</li>
+        <li>To create or delete files</li>
+        <li>To create and manage processes</li>
+        <li>To send and receive network data</li>
+        <li>To use hardware like printers and scanners</li>
+    </ul>
+
+    <h3>Process Identifiers</h3>
+    <p>Each process has a unique Process ID (PID) and its Parent's Process ID (PPID).</p>
+    <p>Functions to get these IDs are declared in &lt;unistd.h&gt;:</p>
+    <pre>
+pid_t getpid(void);
+pid_t getppid(void);
+    </pre>
+
+    <h4>Example Program:</h4>
+    <p>Save the file as <code>lab8_e1.c</code>:</p>
+    <pre>
+#include &lt;stdio.h&gt;
+#include &lt;unistd.h&gt;
+
+int main() {
+    printf("The PID of this process = %d\n", getpid());
+    printf("The PID of the Parent process = %d\n", getppid());
+    return 0;
+}
+    </pre>
+
+    <h3>UNIX System Calls for Process Management</h3>
+    <p>Linux provides these system calls to manage processes:</p>
+    <ul>
+        <li><strong>fork()</strong> - Create a new process</li>
+        <li><strong>exec()</strong> - Run a new program</li>
+        <li><strong>wait()</strong> - Wait for a child process to finish</li>
+        <li><strong>exit()</strong> - End a process</li>
+    </ul>
+
+    <h3>fork() System Call</h3>
+    <p><strong>fork()</strong> creates a new process. The new process is called the <strong>child</strong> and the original is called the <strong>parent</strong>.</p>
+    <p>Both processes continue running from the next line after fork().</p>
+
+    <h4>Example 1: Identical copies</h4>
+    <p>Save the file as <code>lab8_e3.c</code>:</p>
+    <pre>
+#include &lt;unistd.h&gt;
+#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+
+int main(void) {
+    fork();
+    int x = 5;
+    pid_t pid = getpid();
+    printf("Value of X in PID= %d is %d\n", pid, x);
+    return 0;
+}
+    </pre>
+
+    <p>Both parent and child have their own copy of x initialized to 5.</p>
+
+    <h4>fork() - Parent and Child run parallel</h4>
+    <p>After fork(), both processes run at the same time independently.</p>
+
+    <h4>fork() - Return Type</h4>
+    <p>fork() returns:</p>
+    <ul>
+        <li><strong>0</strong> in the child process</li>
+        <li><strong>PID of child</strong> in the parent process</li>
+        <li><strong>-1</strong> if fork fails</li>
+    </ul>
+
+    <h4>Example 2: Checking return values</h4>
+    <p>Save the file as <code>lab8_e4.c</code>:</p>
+    <pre>
+#include &lt;stdio.h&gt;
+#include &lt;unistd.h&gt;
+
+int main() {
+    int pid = fork();
+
+    if (pid == 0) {
+        printf("I'm the child! My PID is %d\n", getpid());
+    } else {
+        printf("I'm the parent! My PID is %d and my child's PID is %d\n", getpid(), pid);
+    }
+
+    return 0;
+}
+    </pre>
+
+    <h3>exec() System Call & Family</h3>
+    <p><strong>exec()</strong> is used after fork() to run a new program inside the child process.</p>
+    <p>It replaces the child's memory with a new program.</p>
+
+    <h4>Important exec Functions:</h4>
+    <ul>
+        <li><strong>execl()</strong> - List of arguments</li>
+        <li><strong>execv()</strong> - Array of arguments</li>
+        <li><strong>execle()</strong> - List with environment</li>
+        <li><strong>execve()</strong> - Array with environment</li>
+    </ul>
+
+    <h4>Example:</h4>
+    <p><strong>File 1: ex1.c</strong></p>
+    <pre>
+#include &lt;stdio.h&gt;
+#include &lt;unistd.h&gt;
+#include &lt;stdlib.h&gt;
+
+int main(int argc, char *argv[]) {
+    printf("PID of ex1.c = %d\n", getpid());
+    
+    char *args[] = {"Hello", NULL};
+    execv("./ex2", args);
+
+    printf("Back to ex1.c");
+    return 0;
+}
+    </pre>
+
+    <p><strong>File 2: ex2.c</strong></p>
+    <pre>
+#include &lt;stdio.h&gt;
+#include &lt;unistd.h&gt;
+#include &lt;stdlib.h&gt;
+
+int main(int argc, char *argv[]) {
+    printf("We are in ex2.c\n");
+    printf("PID of ex2.c = %d\n", getpid());
+    return 0;
+}
+    </pre>
+
+    <p>Here, <strong>ex1.c</strong> starts, but <strong>execv()</strong> replaces it with <strong>ex2.c</strong>.</p>
+
+    <h3>exit() System Call</h3>
+    <p><strong>exit()</strong> ends a process and returns a status code (0 = success, non-zero = error).</p>
+    <p>It also makes sure that all data is properly written before closing.</p>
+
+    <h3>wait() System Call</h3>
+    <p><strong>wait()</strong> makes the parent wait until the child process finishes.</p>
+    <p>It returns the PID of the child that finished.</p>
+
+    <h4>Example:</h4>
+    <pre>
+#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;unistd.h&gt;
+#include &lt;sys/wait.h&gt;
+
+int main() {
+    pid_t pid = fork();
+
+    if (pid == 0) {
+        // Child process
+        printf("Child: I'm working...\n");
+        sleep(2); // simulate work
+        printf("Child: I'm done!\n");
+        exit(0);
+    } else {
+        // Parent process
+        printf("Parent: Waiting for child to finish...\n");
+        wait(NULL); // wait for the child
+        printf("Parent: Child has finished. I can continue.\n");
+    }
+
+    return 0;
+}
+    </pre>
+
+</div>
+
+<div class="task">
+    <h2>12. Shell Programming</h2>
+
+<h3>Shell</h3>
+<p>Shell is a program that accepts your instructions (scripts or commands) and if they are valid, passes them to the kernel for execution. It is a command language interpreter and environment for user interaction. Shell is not part of the system kernel but uses the kernel to execute scripts and commands. Some common shells in Linux are BASH, CSH, TCSH, and KSH.</p>
+
+<h3>Shell Commands</h3>
+<p>A shell command is any instruction that the user wants to execute, like <code>ls</code>, <code>mkdir</code>, <code>date</code>, <code>who</code> etc. Typing and executing each command separately is not practical for many commands. So, we write all commands in a file called a <b>shell script</b> and execute the file once.</p>
+
+<h3>Shell Script</h3>
+<p>A shell script is a file containing Linux commands, language constructs, and other specific shell commands. The shell executes the shell script line by line.</p>
+
+<h3>Shell Scripting/Programming</h3>
+<p>Writing a set of instructions in files using predefined syntax is called Shell Scripting. The shell language includes features like sequence, selection, and loops.</p>
+
+<h3>Creating Shell Script</h3>
+<p>You can create a shell script using any ASCII editor (vi, pico, gedit) with or without the extension <code>.sh</code>.</p>
+
+<b>Example:</b>
+<pre>
+#!/bin/bash
+clear
+echo "Welcome to Shell Scripting"
+</pre>
+
+<p><b>Before executing:</b> Set execution permission:</p>
+<pre>chmod u+x firstscript</pre>
+
+<p><b>Run the script:</b></p>
+<pre>./firstscript</pre>
+
+<p><b>echo</b> is used to print text on the screen.</p>
+
+<h3>Comments in Script</h3>
+<p>Use <code>#</code> for comments. Shell ignores everything after <code>#</code>.</p>
+<pre>
+# This is a comment
+date # show current date
+echo "Hello!!!" # print message
+</pre>
+
+<h3>#!/bin/sh</h3>
+<p>The first line <code>#!/bin/sh</code> ensures that the script is executed with the correct shell. It must be the first line of the script.</p>
+
+<hr>
+
+<h2>Shell Variables</h2>
+
+<p>Variables are names associated with values. Shell variables can be:</p>
+<ul>
+<li>User Defined Variables</li>
+<li>Predefined and Positional Parameters</li>
+<li>System Shell Variables</li>
+</ul>
+
+<h3>User Defined Variables</h3>
+<p>Created by the user to store data.</p>
+
+<b>Example:</b>
+<pre>
+#!/bin/bash
+name="Alice"
+echo "Hello, $name!"
+</pre>
+
+<b>Output:</b>
+<pre>Hello, Alice!</pre>
+
+<h3>Predefined Variables</h3>
+<ul>
+<li><code>$HOME</code>: Home directory</li>
+<li><code>$PATH</code>: List of executable directories</li>
+<li><code>$USER</code>: Logged-in user name</li>
+</ul>
+
+<b>Example:</b>
+<pre>echo "Your home directory is: $HOME"</pre>
+
+<h3>Positional Parameters</h3>
+<p>Variables like <code>$1</code>, <code>$2</code>, ..., store command-line arguments.</p>
+
+<b>Example:</b>
+<pre>
+#!/bin/bash
+echo "First argument: $1"
+echo "Second argument: $2"
+</pre>
+
+<h3>System Shell Variables</h3>
+<ul>
+<li><code>$SHELL</code>: Current shell path</li>
+<li><code>$PWD</code>: Current directory</li>
+<li><code>$UID</code>: User ID</li>
+<li><code>$?</code>: Exit status of last command</li>
+</ul>
+
+<b>Example:</b>
+<pre>echo "You are using: $SHELL"</pre>
+
+<h3>Null String</h3>
+<p>A variable with no value:</p>
+<pre>
+empty1=''
+empty2=
+empty3=""
+</pre>
+
+<h3>Displaying Variables</h3>
+<p>Use <code>echo</code>:</p>
+<pre>echo $name</pre>
+
+<h3>Reading Variables from User</h3>
+<p>Use <code>read</code>:</p>
+<pre>read x y z</pre>
+
+<hr>
+
+<h2>Doing Arithmetic in Linux</h2>
+
+<p>All shell variables are treated as strings. For arithmetic, we use <b>expr</b>.</p>
+
+<h3>Using expr:</h3>
+<pre>
+a=10
+b=5
+result=`expr $a + $b`
+echo "Sum is: $result"
+</pre>
+
+<p><b>Note:</b> Spaces are necessary between operators and numbers.</p>
+
+<h3>Assigning Result to Variable</h3>
+<pre>
+result=$(expr $a + $b)
+echo $result
+</pre>
+
+<h3>Arithmetic Examples</h3>
+<pre>
+a=8
+b=2
+echo "Add: `expr $a + $b`"
+echo "Subtract: `expr $a - $b`"
+echo "Multiply: `expr $a \* $b`"
+echo "Divide: `expr $a / $b`"
+echo "Modulus: `expr $a % $b`"
+</pre>
+
+<pre>
+a=20
+b=4
+echo "Add: $((a + b))"
+echo "Subtract: $((a - b))"
+echo "Multiply: $((a * b))"
+echo "Divide: $((a / b))"
+echo "Modulus: $((a % b))"
+</pre>
+
+<p><b>Multiplication Problem:</b> Use backslash (<code>\*</code>) to escape multiplication.</p>
+<pre>expr 5 \* 5</pre>
+
+<hr>
+
+<h2>Floating-Point Arithmetic in Shell</h2>
+
+<h3>Problem with expr</h3>
+<p><code>expr</code> cannot handle floating-point numbers.</p>
+<pre>expr 2.1 + 2</pre>
+<p>Output:</p>
+<pre>expr: non-numeric argument</pre>
+
+<h3>Solution: Using bc</h3>
+<p><b>bc</b> is a calculator supporting floating-point arithmetic.</p>
+
+<b>Example:</b>
+<pre>echo 5.5+6.9 | bc</pre>
+<p>Output:</p>
+<pre>12.4</pre>
+
+<h3>Setting Decimal Places with scale</h3>
+<pre>echo "scale=3; 15/2" | bc</pre>
+<p>Output:</p>
+<pre>7.500</pre>
+
+<pre>echo "scale=2; sqrt(50)" | bc</pre>
+<p>Output:</p>
+<pre>7.07</pre>
+
+<h3>Assigning Result to Variable</h3>
+<pre>
+var=$(echo "scale=3; sqrt(30)" | bc)
+echo $var
+</pre>
+<p>Output:</p>
+<pre>5.477</pre>
+
+
+</div>
+
+
+<div class="task">
+    <section>
+        <h2>Predefined Variables</h2>
+        <p>Shell automatically provides useful variables:</p>
+        <table>
+            <tr><th>Variable</th><th>Description</th></tr>
+            <tr><td>$HOME</td><td>User's home directory</td></tr>
+            <tr><td>$PATH</td><td>Directories to search for executable files</td></tr>
+            <tr><td>$USER</td><td>Current logged-in username</td></tr>
+        </table>
+        <div class="task">
+            <p><code>echo "Your home directory is: $HOME"</code></p>
+        </div>
+    </section>
+
+    <section>
+        <h2>Positional Parameters</h2>
+        <p>Shell scripts can accept arguments passed when you run them. These are stored in special variables:</p>
+        <table>
+            <tr><th>Variable</th><th>Description</th></tr>
+            <tr><td>$0</td><td>Name of the script</td></tr>
+            <tr><td>$1 to $9</td><td>1st to 9th arguments</td></tr>
+            <tr><td>$#</td><td>Number of arguments</td></tr>
+            <tr><td>$*</td><td>All arguments as a single string</td></tr>
+            <tr><td>$@</td><td>All arguments, quoted individually</td></tr>
+            <tr><td>$$</td><td>Process ID of the running script</td></tr>
+            <tr><td>$?</td><td>Exit status of the last command</td></tr>
+        </table>
+        <div class="task">
+            <pre>
+#!/bin/bash
+echo "First argument: $1"
+echo "Second argument: $2
+            </pre>
+        </div>
+    </section>
+
+    <section>
+        <h2>Assigning Values to Positional Parameters</h2>
+        <p>You can set values for the positional parameters manually using <code>set</code>:</p>
+        <div class="task">
+            <pre>
+#!/bin/bash
+echo "Before set: $1 and $2"
+set apple banana
+echo "After set: $1 and $2"
+            </pre>
+        </div>
+    </section>
+
+    <section>
+        <h2>Testing Conditions</h2>
+        <p>Shell uses <code>test</code> or <code>[ ]</code> to evaluate conditions (numbers, strings, or files).</p>
+
+        <h3>Testing Numeric Values</h3>
+        <table>
+            <tr><th>Operator</th><th>Meaning</th></tr>
+            <tr><td>-eq</td><td>Equal to</td></tr>
+            <tr><td>-ne</td><td>Not equal to</td></tr>
+            <tr><td>-lt</td><td>Less than</td></tr>
+            <tr><td>-le</td><td>Less than or equal to</td></tr>
+            <tr><td>-gt</td><td>Greater than</td></tr>
+            <tr><td>-ge</td><td>Greater than or equal to</td></tr>
+        </table>
+        <div class="task">
+            <pre>
+#!/bin/bash
+read -p "Enter a number: " num
+if [ $num -gt 10 ]; then
+    echo "Greater than 10"
+else
+    echo "10 or less"
+fi
+            </pre>
+        </div>
+
+        <h3>Testing Strings</h3>
+        <table>
+            <tr><th>Operator</th><th>Meaning</th></tr>
+            <tr><td>=</td><td>Equal</td></tr>
+            <tr><td>!=</td><td>Not equal</td></tr>
+            <tr><td>-n</td><td>Not empty</td></tr>
+            <tr><td>-z</td><td>Empty</td></tr>
+        </table>
+        <div class="task">
+            <pre>
+#!/bin/bash
+read str1
+read str2
+if [ "$str1" = "$str2" ]; then
+    echo "Strings are equal."
+else
+    echo "Strings are not equal."
+fi
+            </pre>
+        </div>
+
+        <h3>Testing Files</h3>
+        <table>
+            <tr><th>Test</th><th>Meaning</th></tr>
+            <tr><td>-e</td><td>File exists</td></tr>
+            <tr><td>-f</td><td>Normal file</td></tr>
+            <tr><td>-d</td><td>Directory</td></tr>
+            <tr><td>-r</td><td>Readable</td></tr>
+            <tr><td>-w</td><td>Writable</td></tr>
+            <tr><td>-x</td><td>Executable</td></tr>
+        </table>
+        <div class="task">
+            <pre>
+read filename
+if [ -e "$filename" ]; then
+    echo "File exists."
+fi
+            </pre>
+        </div>
+    </section>
+
+    <section>
+        <h2>Exit Status of Commands</h2>
+        <p>Use <code>$?</code> to check if the last command was successful (0 for success, non-zero for error).</p>
+        <div class="task">
+            <pre>
+ls
+echo $?
+            </pre>
+        </div>
+    </section>
+
+    <section>
+        <h2>Making Choices</h2>
+
+        <h3>1. if - then</h3>
+        <div class="task">
+            <pre>
+if [ $num -gt 0 ]; then
+    echo "Positive number."
+fi
+            </pre>
+        </div>
+
+        <h3>2. if - then - else</h3>
+        <div class="task">
+            <pre>
+if [ $num -gt 0 ]; then
+    echo "Positive"
+else
+    echo "Zero or Negative"
+fi
+            </pre>
+        </div>
+
+        <h3>3. if - elif - else</h3>
+        <div class="task">
+            <pre>
+if [ $num1 -gt 5 ]; then
+    echo "Greater than 5"
+elif [ $num1 -lt 5 ]; then
+    echo "Less than 5"
+else
+    echo "Equal to 5"
+fi
+            </pre>
+        </div>
+
+        <h3>4. case Statement</h3>
+        <div class="task">
+            <pre>
+read letter
+case $letter in
+    a|A) echo "A entered" ;;
+    b|B) echo "B entered" ;;
+    *) echo "Other letter" ;;
+esac
+            </pre>
+        </div>
+    </section>
+</div>
+
+</body>
+</html>
